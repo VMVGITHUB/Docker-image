@@ -1,17 +1,10 @@
-# Use Python as the base image
 FROM python:3.9
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy all files into the container
+# Copy everything inside the project, including the 'app' folder
 COPY . /app
 
-# Install dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the Flask port
-EXPOSE 5000
-
-# Start the app
-CMD ["python", "app/app.py"]
+CMD ["python", "/app/app/app.py"]
